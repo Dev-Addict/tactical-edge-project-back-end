@@ -16,6 +16,24 @@ services:
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
+  database:
+    container_name: tactical_edge_ci_database
+    image: mongo:7.0.12
+    env_file:
+      - .test.env
+    restart: unless-stopped
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${DATABASE_USER}
+      - MONGO_INITDB_ROOT_PASSWORD=${DATABASE_PASS}
+    ports:
+      - '${DATABASE_NETWORK_PORT}:${DATABASE_DOCKER_PORT}'
+    volumes:
+      - database:/data/db
+    networks:
+      - tactical_edge_ci_network
 
 networks:
   tactical_edge_ci_network:
+
+volumes:
+  database:

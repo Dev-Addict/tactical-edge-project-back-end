@@ -6,7 +6,7 @@ WORKDIR /usr/src/app
 
 COPY package.json yarn.lock ./
 
-RUN yarn install
+RUN yarn --ignore-engines install
 
 COPY . .
 
@@ -24,11 +24,11 @@ WORKDIR /usr/src/app
 
 COPY package*.json yarn.lock ./
 
-RUN NODE_ENV=development yarn install
+RUN NODE_ENV=development yarn --ignore-engines install
 
 COPY . .
 
-RUN yarn build
+RUN yarn --ignore-engines build
 
 EXPOSE 4000
 
