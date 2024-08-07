@@ -1,28 +1,19 @@
 {
-  "compilerOptions": {
-    "module": "NodeNext",
-    "esModuleInterop": true,
-    "target": "es6",
-    "noImplicitAny": true,
-    "moduleResolution": "node",
-    "sourceMap": true,
-    "outDir": "dist",
-    "rootDir": "src",
-    "strict": true,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "types": [
-      "node",
-      "jest"
-    ],
-    "typeRoots": [
-      "src/@types",
-      "node_modules/@types"
-    ],
-    "allowJs": true
-  },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts"
-  ]
+	"compilerOptions": {
+		"module": "NodeNext",
+		"esModuleInterop": true,
+		"target": "es6",
+		"noImplicitAny": true,
+		"moduleResolution": "node",
+		"sourceMap": true,
+		"outDir": "./dist",
+		"rootDir": "./src",
+		"strict": true,
+		"resolveJsonModule": true,
+		"skipLibCheck": true,
+		"types": ["node", "jest"],
+		"typeRoots": ["src/@types", "node_modules/@types"],
+		"allowJs": true
+	},
+	"include": ["src/**/*.ts", "src/**/*.d.ts"]
 }

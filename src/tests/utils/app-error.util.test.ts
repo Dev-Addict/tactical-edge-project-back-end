@@ -1,5 +1,5 @@
-import {AppError} from '../../src/utils/app-error.util';
-import {Status} from '../../src/types/enums/status.enum';
+import {AppError} from '../../utils/app-error.util';
+import {Status} from '../../types/enums/status.enum';
 
 describe('AppError class', () => {
 	let appError: AppError;

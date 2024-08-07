@@ -1,4 +1,4 @@
-import {LoggerService} from '../../src/services/logger.service';
+import {LoggerService} from '../../services/logger.service';
 
 describe('LoggerService class', () => {
 	it('should have info method', () => {

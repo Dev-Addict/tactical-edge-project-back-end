@@ -6,8 +6,6 @@ winston.createLogger = jest.fn().mockReturnValue({
 	log: jest.fn(),
 });
 
-export default winston;
-
 export const format = {
 	combine: jest.fn(),
 	colorize: jest.fn(),
@@ -17,3 +15,5 @@ export const format = {
 export const transports = {
 	Console: jest.fn(),
 };
+
+export default winston;
