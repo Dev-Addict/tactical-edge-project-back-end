@@ -10,8 +10,8 @@ RUN yarn install
 
 COPY . .
 
-
 FROM base AS development
+
 EXPOSE 4000
 
 FROM node:18.12.1-alpine3.16 AS production

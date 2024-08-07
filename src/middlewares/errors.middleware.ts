@@ -1,8 +1,8 @@
 import {NextFunction, Request, Response} from 'express';
 
-import {LoggerService} from '../../services/logger.service';
-import {AppError} from '../app-error.util';
-import {IS_DEV} from '../../env';
+import {LoggerService} from '../services/logger.service';
+import {AppError} from '../utils/app-error.util';
+import {IS_DEV} from '../env';
 
 /**
  * Middleware to handle errors.

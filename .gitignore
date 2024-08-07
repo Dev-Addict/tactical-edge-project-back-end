@@ -146,6 +146,7 @@ dist
 .env
 *.env
 !.sample.env
+!.ci.env
 
 # Nexus
 generated/

@@ -1,18 +1,18 @@
 services:
-  server:
-    container_name: tactical_edge_server
-    image: tactical_edge_server:latest
+  test:
+    container_name: tactical_edge_test
+    image: tactical_edge_test:latest
     env_file:
-      - .dev.env
+      - .test.env
     build:
       context: .
       dockerfile: Dockerfile
-      target: development
-    command: npm run dev
+      target: base
+    command: npm run test
     ports:
       - '${SERVER_NETWORK_PORT}:${SERVER_DOCKER_PORT}'
     networks:
-      - tactical_edge_network
+      - tactical_edge_test_network
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
@@ -21,4 +21,4 @@ services:
     tty: true
 
 networks:
-  tactical_edge_network:
+  tactical_edge_test_network:

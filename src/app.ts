@@ -5,6 +5,7 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 
 import {BODY_LIMIT, CORS_ORIGIN, IS_DEV} from './env';
+import {errorsMiddleware} from './middlewares/errors.middleware';
 
 export const app = express();
 
@@ -22,5 +23,7 @@ app.use(
 app.use(json({limit: BODY_LIMIT}));
 app.use(urlencoded({extended: true}));
 app.use(cookieParser());
+
+app.use(errorsMiddleware);
 
 export const server = createServer(app);
