@@ -1,2 +1,5 @@
 0xE000000: Unknown error
 0xE000001: Internal server error
+0xE000002: Invalid username or password
+0xE000003: Invalid bearer token
+0xE000004: Invalid refresh token

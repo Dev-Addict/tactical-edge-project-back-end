@@ -101,7 +101,7 @@ describe('User Model', () => {
 			password: 'Test@123',
 		};
 
-		let validUser = new User(mockUser);
+		const validUser = new User(mockUser);
 
 		await validUser.save();
 
