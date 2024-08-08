@@ -1,3 +1,2 @@
-import {} from 'graphql-upload';
-
+export * from './mutations';
 export * from './queries';
