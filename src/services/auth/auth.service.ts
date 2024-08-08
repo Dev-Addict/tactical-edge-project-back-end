@@ -5,6 +5,7 @@ import {refreshToken} from './helpers/refresh-token.helper';
 import {signIn} from './helpers/sign-in.helper';
 import {signUp} from './helpers/sign-up.helper';
 import {updateSelf} from './helpers/update-self.helper';
+import {isEmailTaken} from './helpers/is-email-taken.helper';
 
 /**
  * The service for authentication.
@@ -86,4 +87,11 @@ export class AuthService {
 	 * @returns The user object.
 	 */
 	public updateSelf = updateSelf.bind(this);
+
+	/**
+	 * Checks if an email is taken.
+	 * @param email - The email to check.
+	 * @returns {Promise<boolean>} Whether the email is taken.
+	 */
+	public isEmailTaken = isEmailTaken.bind(this);
 }
