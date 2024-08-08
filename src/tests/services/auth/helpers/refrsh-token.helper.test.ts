@@ -1,6 +1,7 @@
 import {refreshToken} from '../../../../services/auth/helpers/refresh-token.helper';
 import {JwtService} from '../../../../services/jwt.service';
 import {User} from '../../../../models/user/user.model';
+import {AuthService} from '../../../../services/auth/auth.service';
 
 describe('refreshToken', () => {
 	let mockJwtService: jest.Mocked<JwtService>;
@@ -11,7 +12,9 @@ describe('refreshToken', () => {
 
 	it('should throw an error if refresh token is invalid', async () => {
 		mockJwtService.verifyToken = jest.fn().mockRejectedValue(new Error());
-		await expect(refreshToken('invalid.token')).rejects.toThrow();
+		await expect(
+			refreshToken.call(AuthService.getInstance(), 'invalid.token')
+		).rejects.toThrow();
 	});
 
 	it('should throw an error if user is not found', async () => {
@@ -19,7 +22,9 @@ describe('refreshToken', () => {
 			.fn()
 			.mockResolvedValue({id: '123', refresh: true});
 		User.findById = jest.fn().mockResolvedValue(null);
-		await expect(refreshToken('valid.token')).rejects.toThrow('0xE000004');
+		await expect(
+			refreshToken.call(AuthService.getInstance(), 'valid.token')
+		).rejects.toThrow('0xE000004');
 	});
 
 	it('should return new token, refresh token, and user if refresh token is valid and user is found', async () => {
@@ -33,7 +38,10 @@ describe('refreshToken', () => {
 			.mockResolvedValueOnce('new.token')
 			.mockResolvedValueOnce('new.refresh.token');
 
-		const result = await refreshToken('valid.token');
+		const result = await refreshToken.call(
+			AuthService.getInstance(),
+			'valid.token'
+		);
 		expect(result).toEqual({
 			token: 'new.token',
 			refreshToken: 'new.refresh.token',
